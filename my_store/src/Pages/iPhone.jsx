@@ -82,7 +82,7 @@ const IPhone = () => {
   // const [orderBy, setOrderBy] = useState("");
   // const [filter, setFilter] = useState();
 
-  // const sort ="price";
+
 
   const product =async()=>{
     setLoading(true)
