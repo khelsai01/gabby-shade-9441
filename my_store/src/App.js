@@ -8,9 +8,9 @@ import { Container } from '@chakra-ui/react';
 
 function App() {
   return (
-   <Container maxW="container.xl" bgGradient='linear(red.50 0%, orange.50 25%, green.50 50%)' >
-    <Home />
-
+   <Container maxW="full" bgGradient='linear(red.50 0%, orange.50 25%, green.50 50%)' >
+    <Navbar maxW="full" />
+    <AllRoutes />
    </Container>
   );
 }
