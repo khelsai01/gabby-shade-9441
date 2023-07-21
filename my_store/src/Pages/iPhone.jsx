@@ -69,7 +69,7 @@ const IPhone = () => {
         <VStack>
           <Flex>
             {phoneCategory.map((phone)=>(
-            <Container>
+            <Container m="auto">
                 <VStack>
                 <Image src={phone.image} alt={phone.title} />
                 <Text>{phone.title}</Text>
