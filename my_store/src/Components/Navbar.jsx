@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink  } from "react-router-dom";
-import { Box ,Image, Flex, Heading, Container, HStack} from "@chakra-ui/react"
+import { Box ,Image, Flex, Heading, Container, HStack ,Link} from "@chakra-ui/react"
 
 
 
@@ -19,8 +19,8 @@ const Navbar =()=>{
         },
         {
             id:3,
-            title:"Mac",
-            path: "/mac"
+            title:"iPads",
+            path: "/ipad"
         },
         {
             id:4,
@@ -49,10 +49,12 @@ const Navbar =()=>{
         color:"whitesmoke"
     }
 
-    return <Container maxW="full" bg="gray" p="10px" >
+    return <Container maxW="full" bg="gray" py="10px" px="20px" >
         <Flex style={{display:"flex" ,justifyContent:"space-around"}} gap={5}>
-            <Image src="logo.png"  boxSize="50px"/>
-            <HStack>
+            <NavLink to="/">
+                <Image src="logo.png"  boxSize="50px"/>
+            </NavLink>
+            <HStack style={{display:"flex" ,justifyContent:"space-around"}} gap={5}>
                 {links.map((link)=>(
                     <NavLink key={link.id} to={link.path}
                     style={

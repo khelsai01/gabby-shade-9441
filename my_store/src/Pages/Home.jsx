@@ -30,7 +30,8 @@ import applie_watch from "../images/apple_watch.png"
 import iphone_14_pro from "../images/iphone_14_pro.png";
 import moniter from "../images/moniter.png"
 import watch from "../images/watch.png"
-import heroPhone from "../images/heroPhone.png"
+
+
 
 
 
@@ -100,7 +101,9 @@ export const Home =()=>{
                           
                             <Text>Alluminium of aerospace class</Text>
                            <HStack alignContent="center">
-                            <ButtonClick btnText={"Buy"} />
+                           <Link to="/iphone">
+                           <ButtonClick btnText={"Buy"} />
+                           </Link>
                             <Text> From 1199 $</Text>
                            </HStack>
                         </VStack>
@@ -159,15 +162,15 @@ export const Home =()=>{
                 <SimpleGrid columns={{sm:1,md:2,lg:3}} spacing={10} my="50px">
                        
                             {products.map((pro,index)=>(
-                                <Cards kry={pro.title} {...pro}/>
+                                <Cards kry={pro.title} {...pro} />
                             ))}
                            
                 </SimpleGrid>
-                <Box w="75%" bg="white" m="auto" p="20px"   borderRadius="10px" boxShadow='2xl'>
-                    <Image src={iphone14} align="center"/>
+                <Box w="75%" bg="white" align="center" h={{base:"49vh",md:"62vh"}} p="18px" m="auto"  borderRadius="10px" boxShadow='2xl'>
+                    <Image src={iphone14}  />
                 </Box>
 
-                <FooterPart />
+               
            </Container>
       
     )

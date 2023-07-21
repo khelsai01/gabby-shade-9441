@@ -1,6 +1,15 @@
-import { Container, Flex, VStack, Image,Text, Heading } from '@chakra-ui/react'
-import React from 'react';
+import { Container, Flex, VStack, Image,Text, Heading ,SimpleGrid} from '@chakra-ui/react'
+import React, { useEffect } from 'react';
+import {useState} from "react";
+import axios from "axios"
+import productCard from '../Cards/productCard';
+import { useSearchParams } from 'react-router-dom';
 
+
+
+const getUrl =(url)=>{
+
+}
 
 
 const phoneCategory =[
@@ -62,8 +71,58 @@ const phoneCategory =[
 
 
 ]
+
 const IPhone = () => {
  
+  const [Loading, setLoading] = useState(false);
+   const [isError, setisError] = useState(false);
+  const [data ,setData] =useState([])
+  // const[currPage , setPage] = useState(1)
+  // const [searchParams , setSearchParam] = useSearchParams()
+  // const [orderBy, setOrderBy] = useState("");
+  // const [filter, setFilter] = useState();
+
+  // const sort ="price";
+
+  const product =async()=>{
+    setLoading(true)
+    setisError(false)
+    // const apiUrl = getUrl(`http://localhost:8080/iphone`)
+    try {
+      let res = await fetch(`http://localhost:8080/iphone`)
+      let data = await res.json();
+      setData(data)
+      setLoading(false)
+      setisError(false)
+    } catch (error) {
+      console.log(error)
+      setisError(true)
+      setLoading(false)
+      
+    }
+    
+    // axios
+    // .get(`http://localhost:8080/iphone?_page=1&_limit=6`)
+    // .then((res)=>setData(res?.data))
+
+    // .catch((err)=>console.log(err))
+  }
+
+  useEffect(()=>{
+    product()
+  },[])
+
+  // useEffect(()=>{
+
+  // },[])
+
+  if(Loading){
+    return <Heading>Loading...</Heading>
+  }
+
+  if(isError){
+    return <Heading>Something is wrong please check .....</Heading>
+  }
   return (
     <Container>
         <VStack>
@@ -77,7 +136,21 @@ const IPhone = () => {
             </Container>
             ))}
           </Flex>
+          
         </VStack>
+        <Flex>
+          <SimpleGrid columns={{sm:1,md:2,lg:3}} spacing={10} m="auto" marginTop={"50px"}>
+            {data?.map((iphone)=>(
+             
+              <VStack>
+                <Image src ={iphone.image}/>
+                <Heading size="sm" color="gray" align="center">{iphone.title}</Heading>
+                <Text> Rating: {iphone.rating}</Text>
+                <Text>Price: {iphone.price}</Text>
+              </VStack>
+            ))}
+          </SimpleGrid>
+        </Flex>
     </Container>
   )
 }

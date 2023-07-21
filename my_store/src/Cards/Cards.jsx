@@ -8,11 +8,12 @@ const Cards=({title,price, image,category ,index})=>{
     return <Container >
             <VStack 
              boxSize="90%"
-            bg="white"
+            bg="black"
             borderRadius="10px" 
             boxShadow='2xl'
             p="15px"
-           
+         
+             
             >
             <VStack h="40%" gap={1}>
             <Text color="gray.500" size="sm" >{category}</Text>
