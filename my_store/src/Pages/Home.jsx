@@ -16,8 +16,23 @@ import
     
 } from "@chakra-ui/react";
 import ButtonClick from "../Components/Buttton";
-import Cards from "./Cards";
+import Cards from "../Cards/Cards";
 import { FooterPart } from "../Components/Footer";
+import { Link, Navigate } from "react-router-dom";
+import ipad from "../images/ipad.png"
+import iphone14pro from "../images/iphone14pro.png"
+import airpods from "../images/airpods.png"
+import Mac from "../images/Mac.png"
+import watch_series_7 from "../images/watch_series_7.png"
+import watch_series_7p from "../images/watch_series_7p.png"
+import iphone14 from '../images/iphone14.png'
+import applie_watch from "../images/apple_watch.png"
+import iphone_14_pro from "../images/iphone_14_pro.png";
+import moniter from "../images/moniter.png"
+import watch from "../images/watch.png"
+import heroPhone from "../images/heroPhone.png"
+
+
 
 
 export const Home =()=>{
@@ -27,49 +42,49 @@ export const Home =()=>{
             title:"iPhone 14 Pro",
             price:"₹ 1,10,009",
             category:"BRAND NEW",
-            image:"/images/iphone14pro.png"
+            image:iphone14pro
 
         },
         {
             title:"MacBook M1",
             price:"₹ 1,39,009",
             category:"11th GENERATION",
-            Image:"/images/Mac.png"
+            image:Mac
 
         },
         {
             title:"Watch Series 7",
             price:"₹ 1,09,009",
             category:"NEW",
-            Image:"/images/watch-series-7.png"
+            image:applie_watch
 
         },
         {
             title:"Apple Watch Ultra",
             price:"₹ 1,20,000",
             category:"THE ADVENTURE AWAITS",
-            Image:"/images/apple-watch.png"
+            image:watch_series_7p
 
         },
         {
             title:"AirPods Pro",
             price:"₹ 1,10,009",
             category:"BEST EVER",
-            Image:"/images/airpods-pro.png"
+            image:airpods
 
         },
         {
-            title:"New Watchs",
+            title:"New ipad",
             price:"₹ 1,10,009",
             category:"NEW",
-            Image:"/images/watch.png"
+            image:ipad
 
         },
 
     ]
     return (
   
-           <Container  maxW="container.xl">
+           <Container  maxW="container.xl" py="15px" m="auto" >
                 <Flex 
                 justifyContent="space-between"
                 gap={3}
@@ -91,52 +106,65 @@ export const Home =()=>{
                         </VStack>
                   
                     <VStack>
-                        <Image src="images/iphone-14-pro.png"  alt="iphone 14 pro"
+                        <Image src={iphone_14_pro}  alt="iphone 14 pro"
                         />
                     </VStack>
                 </Flex>
                 <VStack align="flex-start" maxW="70%" >
                     <Heading size="lg">Buy new apple devices from the official reseller  </Heading>
                     <Flex justifyContent="space-between"
-                        gap={2}
+                        gap={3}
                         align="center"
+                        margin="auto"
                         direction={{
                             base:"column",
                             md:"row"
+                           
                         }}>
                         <VStack >
-                             <Image  src="images/heroPhone.png" />
-                            <Heading size="md" align="center">iPhone</Heading>
+                            <Link to="/iphone">
+                            <Image  src={iphone_14_pro}  />
+                            <Heading size="md"color="gray" align="center" >iPhone</Heading>
+                            </Link>
                         </VStack>
                         <VStack>
-                            <Image  src="images/watch.png"/>
-                            <Heading size="md" align="center">Watchs</Heading>
+                            <Link to="/watch">
+                                <Image  src={watch} />
+                                <Heading size="md" color="gray" align="center">Watchs</Heading>
+                            </Link>
                         </VStack>
                         <VStack>
-                            <Image  src="images/moniter.png"/>
-                            <Heading size="md" align="center">Desktop</Heading>
+                            <Link to="/mac">
+
+                            <Image  src={moniter} />
+                            <Heading size="md" color="gray" align="center">Desktop</Heading>
+                            </Link>
                         </VStack>
-                        <VStack>
-                            <Image  src="images/airpods-pro.png"/>
-                            <Heading size="md" align="center">AirPods</Heading>
+                        <VStack >
+                            <Link to="/airpods"  >
+                            <Image  src={airpods} />
+                            <Heading size="md" color="gray" align="center">AirPods</Heading>
+                            </Link>
                         </VStack>
-                        <VStack>
-                            <Image  src="images/ipad.png"/>
-                            <Heading size="md" align="center">iPads</Heading>
+                        <VStack >
+                           <Link to="/ipad" >
+                           <Image  src={ipad} />
+                            <Heading size="md" color="gray" align="center">iPads</Heading>
+                           </Link>
                         </VStack>
 
                     </Flex>
                 </VStack>
                 <Divider orientation='vertical' />
-                <SimpleGrid columns={3} spacing={10} my="50px">
+                <SimpleGrid columns={{sm:1,md:2,lg:3}} spacing={10} my="50px">
                        
-                            {products.map((pro)=>(
+                            {products.map((pro,index)=>(
                                 <Cards kry={pro.title} {...pro}/>
                             ))}
                            
                 </SimpleGrid>
                 <Box w="75%" bg="white" m="auto" p="20px"   borderRadius="10px" boxShadow='2xl'>
-                    <Image src="images/iphone14.png" align="center"/>
+                    <Image src={iphone14} align="center"/>
                 </Box>
 
                 <FooterPart />
