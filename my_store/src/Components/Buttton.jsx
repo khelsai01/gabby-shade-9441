@@ -1,11 +1,10 @@
 import React from "react";
-import { Button, background } from "@chakra-ui/react";
+import { Button,} from "@chakra-ui/react";
 
- const ButtonClick =({handleChlick ,btnText})=>{
-
+ const ButtonClick =({btnText})=>{
     
     return <>
-    <Button onChlick={handleChlick} style={{backgroundColor:"blue"}} > {btnText}</Button>
+    <Button w="100px" bg={"#2F855A"}  color={"#171923"} > {btnText}</Button>
     </>
  }
 

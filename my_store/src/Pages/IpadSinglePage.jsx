@@ -4,7 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { AuthContext } from "../AuthContent/AuthContentProvider"
 import Cart from "./Cart";
 
-export const SingleProducts =({addToCart})=>{
+const IpadSinglePage=({addToCart})=>{
 
     const {id} = useParams();
 
@@ -16,7 +16,7 @@ export const SingleProducts =({addToCart})=>{
     const Productdata =async(id)=>{
         setLoading(true)
         try {
-            let res = await fetch(`http://localhost:8080/iphone/${id}`)
+            let res = await fetch(`http://localhost:8080/ipad/${id}`)
             let data = await res.json();
 
             setProduct(data)
@@ -39,7 +39,6 @@ export const SingleProducts =({addToCart})=>{
     const handleAddToCart=()=>{
 
       if(isLoggedIn){
-       
         addToCart(product)
 
       }
@@ -184,3 +183,5 @@ We encourage you to re‑use your current USB‑A to Lightning cables, power ada
       </VStack>
     </Container>
 }
+
+export default IpadSinglePage;
