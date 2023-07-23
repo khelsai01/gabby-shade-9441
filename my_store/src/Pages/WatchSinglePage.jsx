@@ -4,7 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { AuthContext } from "../AuthContent/AuthContentProvider"
 import Cart from "./Cart";
 
-export const SingleProducts =({addToCart})=>{
+ const WatchSinglePage =({addToCart})=>{
 
     const {id} = useParams();
 
@@ -16,7 +16,7 @@ export const SingleProducts =({addToCart})=>{
     const Productdata =async(id)=>{
         setLoading(true)
         try {
-            let res = await fetch(`http://localhost:8080/iphone/${id}`)
+            let res = await fetch(`http://localhost:8080/watch/${id}`)
             let data = await res.json();
 
             setProduct(data)
@@ -39,7 +39,6 @@ export const SingleProducts =({addToCart})=>{
     const handleAddToCart=()=>{
 
       if(isLoggedIn){
-       
         addToCart(product)
 
       }
@@ -75,14 +74,10 @@ export const SingleProducts =({addToCart})=>{
          >
             <Heading size="sm" color="chocolate" >{product.title}</Heading>
             <Text>Price:- {product.price}</Text>
-            <Text>off:- {product.off}</Text>
+            <Text>off  {product.off}</Text>
             <Text> discountPrice:- {product.discountPrice}</Text>
-            <Text>rating:- {product.rating}</Text>
-            <Text>{product.camera}</Text>
-            <Text>{product.torage2}</Text>
-            <Text>{product.storage}</Text>
-
-            <Text>{product.storage5}</Text>
+            <Text>Strap:- {product.strap}</Text>
+            <Text>Delivery:- {product.delivery}</Text>
             <Button bg="gray.300" 
             _hover={{border:"2px solid #9DECF9", bg:"#FFF5F7"}}
             onClick={handleAddToCart}
@@ -103,8 +98,8 @@ export const SingleProducts =({addToCart})=>{
            <Text w="50%" align={"left"}>
             As part of our efforts to reach carbon neutrality by 2030, iPhone 14 and iPhone 14 Plus do not include a power adapter or EarPods. Included in the box is a USB‑C to Lightning Cable that supports charging and is compatible with USB‑C power adapters and computer ports.
             <HStack gap={5} m="auto">
-            <Image src={product?.avatar1}/>
-            <Image src={product?.avatar4} />
+            <Image src={product.avatar1}/>
+            <Image src={product.avatar4} />
 
             </HStack>
             
@@ -184,3 +179,5 @@ We encourage you to re‑use your current USB‑A to Lightning cables, power ada
       </VStack>
     </Container>
 }
+
+export default WatchSinglePage;

@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink  } from "react-router-dom";
-import { Box ,Image, Flex, Heading, Container, HStack ,Link} from "@chakra-ui/react"
-
-
+import { Box ,Image, Flex, Heading, Container, HStack , Spacer} from "@chakra-ui/react"
+import {ShoppingCart} from "@chakra-ui/icons"
+import logo from "../images/logo.png"
+ 
 
 const Navbar =()=>{
     
@@ -52,7 +53,7 @@ const Navbar =()=>{
     return <Container maxW="full" bg="gray" py="10px" px="20px" >
         <Flex style={{display:"flex" ,justifyContent:"space-around"}} gap={5}>
             <NavLink to="/">
-                <Image src="logo.png"  boxSize="50px"/>
+                <Image src={logo}  boxSize="50px"/>
             </NavLink>
             <HStack style={{display:"flex" ,justifyContent:"space-around"}} gap={5}>
                 {links.map((link)=>(
@@ -65,6 +66,9 @@ const Navbar =()=>{
                 ))}
             </HStack>
             <HStack>
+                       <NavLink to="/cart" style={{size:"18px",color:"whitesmoke"}}>Cart</NavLink>
+                       <Spacer />
+                        <NavLink to="/login" style={{size:"18px",color:"whitesmoke"}}>LogIn</NavLink>
 
             </HStack>
         </Flex>

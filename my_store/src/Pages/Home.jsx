@@ -40,6 +40,7 @@ export const Home =()=>{
 
    const  products=[
         {
+            id:1,
             title:"iPhone 14 Pro",
             price:"₹ 1,10,009",
             category:"BRAND NEW",
@@ -47,6 +48,7 @@ export const Home =()=>{
 
         },
         {
+            id:2,
             title:"MacBook M1",
             price:"₹ 1,39,009",
             category:"11th GENERATION",
@@ -54,6 +56,7 @@ export const Home =()=>{
 
         },
         {
+            id:3,
             title:"Watch Series 7",
             price:"₹ 1,09,009",
             category:"NEW",
@@ -61,6 +64,7 @@ export const Home =()=>{
 
         },
         {
+            id:4,
             title:"Apple Watch Ultra",
             price:"₹ 1,20,000",
             category:"THE ADVENTURE AWAITS",
@@ -68,13 +72,14 @@ export const Home =()=>{
 
         },
         {
+            id:5,
             title:"AirPods Pro",
             price:"₹ 1,10,009",
             category:"BEST EVER",
             image:airpods
 
         },
-        {
+        { id:6,
             title:"New ipad",
             price:"₹ 1,10,009",
             category:"NEW",
@@ -102,7 +107,7 @@ export const Home =()=>{
                             <Text>Alluminium of aerospace class</Text>
                            <HStack alignContent="center">
                            <Link to="/iphone">
-                           <ButtonClick btnText={"Buy"} />
+                           <ButtonClick btnText={"Buy"}  />
                            </Link>
                             <Text> From 1199 $</Text>
                            </HStack>
@@ -162,7 +167,7 @@ export const Home =()=>{
                 <SimpleGrid columns={{sm:1,md:2,lg:3}} spacing={10} my="50px">
                        
                             {products.map((pro,index)=>(
-                                <Cards kry={pro.title} {...pro} />
+                                <Cards key={pro.id} {...pro} />
                             ))}
                            
                 </SimpleGrid>
